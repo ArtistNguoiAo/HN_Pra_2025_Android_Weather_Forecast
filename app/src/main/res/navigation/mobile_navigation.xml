@@ -40,4 +40,16 @@
         tools:layout="@layout/fragment_sample"
         />
 
+    <fragment
+        android:id="@+id/login_fragment"
+        android:name="com.sun.weatherapp.screen.auth.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login" />
+
+    <fragment
+        android:id="@+id/register_fragment"
+        android:name="com.sun.weatherapp.screen.auth.register.RegisterFragment"
+        android:label="Register"
+        tools:layout="@layout/fragment_register" />
+
 </navigation>

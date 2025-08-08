@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">WeatherApp</string>
-    
+
     <!-- Weather Screen -->
     <string name="location">Hà Nội, Việt Nam</string>
     <string name="weather_condition">Mây</string>
@@ -10,36 +10,36 @@
     <string name="pressure">Áp suất</string>
     <string name="humidity">Khả năng mưa</string>
     <string name="uv_index">Chỉ số UV</string>
-    
+
     <!-- Units -->
     <string name="kmh">km/h</string>
     <string name="hpa">hpa</string>
     <string name="percent">%</string>
-    
+
     <!-- Time -->
     <string name="day_night_format">Ngày %1$s° Đêm %2$s°</string>
     <string name="time_format">%1$s, %2$s</string>
-    
+
     <!-- Navigation -->
     <string name="nav_home">Home</string>
     <string name="nav_broadcast">Broadcast</string>
     <string name="nav_music">Music</string>
     <string name="nav_profile">Profile</string>
     <string name="nav_sample_mvp">Sample MVP</string>
-    
+
     <!-- Sample Activity -->
     <string name="sample_load_teams_button">Load My Teams</string>
-    
+
     <!-- Broadcast Fragment -->
     <string name="broadcast_title">Broadcast</string>
-    
+
     <!-- Music Fragment -->
     <string name="music_title">Music</string>
-    
+
     <!-- Profile Fragment -->
     <string name="profile_navigate_sample_mvp">Navigate to Sample MVP</string>
     <string name="profile_navigate_sample_api">Navigate to Sample API</string>
-    
+
     <!-- Home Fragment -->
     <string name="home_current_location">Hà Nội, Việt Nam</string>
     <string name="home_current_temperature">3°</string>
@@ -56,4 +56,14 @@
     <string name="home_humidity_change">10%</string>
     <string name="home_uv_index_value">2,3</string>
     <string name="home_uv_index_change">0,3</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng ký</string>
+    <string name="not_account">Bạn chưa có tài khoản?</string>
+    <string name="version">Phiên bản 1.0.0</string>
+    <string name="email">Email</string>
+    <string name="password">Mật khẩu</string>
+    <string name="confirm_password">Xác nhận mật khẩu</string>
+    <string name="remember_password">Nhớ mật khẩu</string>
+    <string name="back">Quay lại</string>
 </resources>

@@ -2,7 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    
+
     <!-- Weather App Colors -->
     <color name="purple_gradient_start">#8B5CF6</color>
     <color name="purple_gradient_end">#6D28D9</color>
@@ -67,4 +67,6 @@
     <color name="af_util_predefined_warm_grey">#8c8c8c</color>
     <color name="af_util_color_toast_background">#b4000000</color>
 
+    <color name="purple">#8A20D5</color>
+    <color name="purple_light">#F6EDFF</color>
 </resources>
