@@ -1,12 +1,14 @@
 package com.sun.weatherapp.screen.example
 
+import com.sun.weatherapp.data.reposiroty.FirebaseRepository
 import com.sun.weatherapp.screen.base.BasePresenter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class ExamplePresenter(
-    private val teamRepository: ITeamRepository
+    private val teamRepository: ITeamRepository,
+    private val firebaseRepository: FirebaseRepository
 ) : BasePresenter<ExampleContract.View>(), ExampleContract.Presenter {
 
     override fun loadMyTeams() {
@@ -24,4 +26,19 @@ class ExamplePresenter(
             }
         }
     }
+
+    override fun saveMyTeams(teams: List<String>) {
+        firebaseRepository.setDocument(
+            collectionPath = "teams",
+            data = mapOf("teams" to teams),
+            onSuccess = {
+
+            },
+            onFailure = { _ ->
+
+            }
+        )
+    }
+
+
 }

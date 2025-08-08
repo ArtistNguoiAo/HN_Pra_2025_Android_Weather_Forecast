@@ -9,5 +9,6 @@ interface ExampleContract : BaseContract<ExampleContract.View, ExampleContract.P
 
     interface Presenter : BaseContract.Presenter<View> {
         fun loadMyTeams()
+        fun saveMyTeams(teams: List<String>)
     }
 }
