@@ -37,4 +37,5 @@ class RegisterFragment : BaseFragment<FragmentRegisterBinding, RegisterPresenter
 
     override fun showError(message: String) {
     }
+
 }

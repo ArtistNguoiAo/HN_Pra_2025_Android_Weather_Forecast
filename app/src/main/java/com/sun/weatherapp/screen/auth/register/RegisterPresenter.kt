@@ -11,4 +11,5 @@ class RegisterPresenter : BasePresenter<RegisterContract.View>(), RegisterContra
             getView()?.showError("Registration failed. Please check your input.")
         }
     }
+
 }

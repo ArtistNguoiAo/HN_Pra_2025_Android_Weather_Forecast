@@ -6,6 +6,7 @@ import com.sun.weatherapp.databinding.FragmentLoginBinding
 import com.sun.weatherapp.screen.base.BaseFragment
 
 class LoginFragment : BaseFragment<FragmentLoginBinding, LoginPresenter>(), LoginContract.View {
+
     override fun getViewBinding(
         inflater: LayoutInflater,
         container: ViewGroup?
@@ -35,4 +36,5 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginPresenter>(), Logi
 
     override fun showError(message: String) {
     }
+
 }
