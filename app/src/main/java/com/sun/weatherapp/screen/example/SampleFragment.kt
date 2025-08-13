@@ -3,6 +3,8 @@ package com.sun.weatherapp.screen.example
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import com.sun.weatherapp.data.reposiroty.FirebaseRepository
+import com.sun.weatherapp.data.service.FirestoreService
 import com.sun.weatherapp.databinding.FragmentSampleBinding
 import com.sun.weatherapp.screen.base.BaseFragment
 
@@ -13,7 +15,7 @@ class SampleFragment : BaseFragment<FragmentSampleBinding, ExamplePresenter>(), 
     }
 
     override fun initializePresenter() {
-        presenter = ExamplePresenter(TeamRepository())
+        presenter = ExamplePresenter(TeamRepository(), FirebaseRepository())
     }
 
     override fun setupViews() {
@@ -27,11 +29,7 @@ class SampleFragment : BaseFragment<FragmentSampleBinding, ExamplePresenter>(), 
     }
 
     override fun showMyTeams(teams: List<String>) {
-        Toast.makeText(
-            context,
-            teams.joinToString(", "),
-            Toast.LENGTH_LONG
-        ).show()
+        presenter?.saveMyTeams(teams)
     }
 
     override fun showLoading() {

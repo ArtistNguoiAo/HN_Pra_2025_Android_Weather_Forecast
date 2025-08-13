@@ -1,6 +1,7 @@
 package com.sun.weatherapp.screen.example
 
 import android.widget.Toast
+import com.sun.weatherapp.data.reposiroty.FirebaseRepository
 import com.sun.weatherapp.databinding.ActivitySampleBinding
 import com.sun.weatherapp.screen.base.BaseActivity
 
@@ -14,12 +15,12 @@ class SampleActivity : BaseActivity<ActivitySampleBinding, ExamplePresenter>(),
     }
 
     override fun initializePresenter() {
-        presenter = ExamplePresenter(TeamRepository())
+        presenter = ExamplePresenter(TeamRepository(), FirebaseRepository())
     }
 
     override fun setupViews() {
         repository = TeamRepository()
-        presenter = ExamplePresenter(repository)
+        presenter = ExamplePresenter(repository, FirebaseRepository())
         presenter?.attachView(this)
     }
 
