@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:backgroundTint="@color/card_background">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Hero Section Skeleton -->
+        <FrameLayout
+            android:id="@+id/skeletonHeroSection"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_400"
+            android:layout_margin="@dimen/dp_16"
+            android:background="@drawable/skeleton_shimmer_background"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <!-- Location Skeleton -->
+            <View
+                android:layout_width="@dimen/dp_200"
+                android:layout_height="@dimen/dp_24"
+                android:layout_gravity="top|start"
+                android:layout_margin="@dimen/dp_16"
+                android:background="@drawable/skeleton_shimmer_item" />
+
+            <!-- Search Icon Skeleton -->
+            <View
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:layout_gravity="top|end"
+                android:layout_margin="@dimen/dp_16"
+                android:background="@drawable/skeleton_shimmer_item" />
+
+            <!-- Temperature Section Skeleton -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_marginHorizontal="@dimen/dp_16">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <!-- Main Temperature -->
+                    <View
+                        android:layout_width="@dimen/dp_120"
+                        android:layout_height="@dimen/dp_80"
+                        android:background="@drawable/skeleton_shimmer_item"
+                        android:layout_marginBottom="@dimen/dp_8" />
+
+                    <!-- Feels Like -->
+                    <View
+                        android:layout_width="@dimen/dp_150"
+                        android:layout_height="@dimen/dp_20"
+                        android:background="@drawable/skeleton_shimmer_item" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:gravity="center">
+
+                    <!-- Weather Icon -->
+                    <View
+                        android:layout_width="@dimen/dp_80"
+                        android:layout_height="@dimen/dp_80"
+                        android:background="@drawable/skeleton_shimmer_item"
+                        android:layout_marginBottom="@dimen/dp_8" />
+
+                    <!-- Weather Description -->
+                    <View
+                        android:layout_width="@dimen/dp_60"
+                        android:layout_height="@dimen/dp_24"
+                        android:background="@drawable/skeleton_shimmer_item" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Bottom Section Skeleton -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/dp_16">
+
+                <!-- Time -->
+                <View
+                    android:layout_width="@dimen/dp_150"
+                    android:layout_height="@dimen/dp_20"
+                    android:background="@drawable/skeleton_shimmer_item" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="1" />
+
+                <!-- Day/Night Temperature -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="@dimen/dp_80"
+                        android:layout_height="@dimen/dp_20"
+                        android:background="@drawable/skeleton_shimmer_item"
+                        android:layout_marginBottom="@dimen/dp_4" />
+
+                    <View
+                        android:layout_width="@dimen/dp_80"
+                        android:layout_height="@dimen/dp_20"
+                        android:background="@drawable/skeleton_shimmer_item" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </FrameLayout>
+
+        <!-- Weather Details Section Skeleton -->
+        <LinearLayout
+            android:id="@+id/skeletonDetailsSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginHorizontal="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
+            android:background="@drawable/weather_card_background"
+            android:padding="@dimen/dp_20"
+            app:layout_constraintTop_toBottomOf="@id/skeletonHeroSection">
+
+            <!-- Section Title Skeleton -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="12dp"
+                android:layout_marginBottom="@dimen/dp_16">
+
+                <View
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:background="@drawable/skeleton_shimmer_item"
+                    android:layout_marginEnd="12dp" />
+
+                <View
+                    android:layout_width="@dimen/dp_150"
+                    android:layout_height="@dimen/dp_20"
+                    android:background="@drawable/skeleton_shimmer_item" />
+
+            </LinearLayout>
+
+            <!-- Weather Details Items Skeleton -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Repeat this for 4 items -->
+                <include layout="@layout/skeleton_weather_detail_item" />
+                <include layout="@layout/skeleton_weather_detail_item" />
+                <include layout="@layout/skeleton_weather_detail_item" />
+                <include layout="@layout/skeleton_weather_detail_item" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>
