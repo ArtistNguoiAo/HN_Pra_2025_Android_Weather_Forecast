@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_artist_item"
+    android:layout_marginBottom="@dimen/dp_16"
+    android:layout_marginHorizontal="@dimen/dp_6"
+    android:padding="@dimen/dp_8">
+
+    <!-- Artist Image -->
+    <ImageView
+        android:id="@+id/ivArtist"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_80"
+        android:background="@drawable/bg_image_placeholder_round"
+        android:scaleType="centerCrop"
+        android:src="@drawable/iv_artist"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Artist Info -->
+    <LinearLayout
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_20"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/ivArtist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/ivArtist"
+        app:layout_constraintTop_toTopOf="@+id/ivArtist">
+
+        <TextView
+            android:id="@+id/tvArtistName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="@dimen/sp_20"
+            android:textStyle="bold"
+            android:lineSpacingExtra="@dimen/dp_2"
+            tools:text="Nghệ sĩ 4" />
+
+        <TextView
+            android:id="@+id/tvArtistDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_6"
+            android:textColor="@color/text_secondary"
+            android:textSize="@dimen/sp_16"
+            android:lineSpacingExtra="@dimen/dp_1"
+            tools:text="Thông tin chi tiết nghệ sĩ 4" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
