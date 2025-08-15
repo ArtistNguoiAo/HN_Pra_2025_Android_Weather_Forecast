@@ -66,6 +66,10 @@
     <string name="confirm_password">Xác nhận mật khẩu</string>
     <string name="remember_password">Nhớ mật khẩu</string>
     <string name="back">Quay lại</string>
+    <string name="register_success">Đăng ký thành công</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="loading">Loading</string>
+    <string name="error">Lỗi</string>
 
     <!-- Music strings -->
     <string name="recommend">Recommend</string>
