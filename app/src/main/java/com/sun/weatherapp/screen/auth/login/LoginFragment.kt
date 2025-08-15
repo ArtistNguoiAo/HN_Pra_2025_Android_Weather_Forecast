@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.sun.weatherapp.R
+import com.sun.weatherapp.WeatherApplication
 import com.sun.weatherapp.data.helper.PreferenceHelper
 import com.sun.weatherapp.data.reposiroty.AuthRepository
 import com.sun.weatherapp.databinding.FragmentLoginBinding
@@ -30,7 +31,7 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginPresenter>(), Logi
 
     override fun setupViews() {
         presenter?.attachView(this)
-        pref = PreferenceHelper(requireContext())
+        pref = WeatherApplication.getInstance().preferenceHelper
     }
 
     override fun setupListeners() {

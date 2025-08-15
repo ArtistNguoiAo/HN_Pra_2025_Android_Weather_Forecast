@@ -3,27 +3,34 @@ package com.sun.weatherapp.data.helper
 import android.content.Context
 import android.content.SharedPreferences
 
-class PreferenceHelper(context: Context) {
+class PreferenceHelper private constructor(context: Context) {
 
     companion object {
         private const val PREF_NAME = "my_shared_pref"
         const val KEY_REMEMBER_ME = "remember_me"
         const val KEY_EMAIL = "email"
         const val KEY_PASSWORD = "password"
+
+        @Volatile
+        private var instance: PreferenceHelper? = null
+
+        fun getInstance(context: Context): PreferenceHelper {
+            return instance ?: synchronized(this) {
+                instance ?: PreferenceHelper(context.applicationContext).also { instance = it }
+            }
+        }
     }
 
     private val sharedPreferences: SharedPreferences =
-        context.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
-
-    private val editor: SharedPreferences.Editor = sharedPreferences.edit()
+        context.applicationContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
     // Lưu dữ liệu
     fun putString(key: String, value: String) {
-        editor.putString(key, value).apply()
+        sharedPreferences.edit().putString(key, value).apply()
     }
 
     fun putBoolean(key: String, value: Boolean) {
-        editor.putBoolean(key, value).apply()
+        sharedPreferences.edit().putBoolean(key, value).apply()
     }
 
     // Lấy dữ liệu
@@ -37,11 +44,10 @@ class PreferenceHelper(context: Context) {
 
     // Xóa dữ liệu
     fun remove(key: String) {
-        editor.remove(key).apply()
+        sharedPreferences.edit().remove(key).apply()
     }
 
-    // Xóa tất cả
     fun clear() {
-        editor.clear().apply()
+        sharedPreferences.edit().clear().apply()
     }
 }
