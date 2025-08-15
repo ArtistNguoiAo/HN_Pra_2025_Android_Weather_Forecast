@@ -24,7 +24,6 @@ class PreferenceHelper private constructor(context: Context) {
     private val sharedPreferences: SharedPreferences =
         context.applicationContext.getSharedPreferences(PREF_NAME, Context.MODE_PRIVATE)
 
-    // Lưu dữ liệu
     fun putString(key: String, value: String) {
         sharedPreferences.edit().putString(key, value).apply()
     }
@@ -33,7 +32,6 @@ class PreferenceHelper private constructor(context: Context) {
         sharedPreferences.edit().putBoolean(key, value).apply()
     }
 
-    // Lấy dữ liệu
     fun getString(key: String, defaultValue: String = ""): String {
         return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
@@ -42,7 +40,6 @@ class PreferenceHelper private constructor(context: Context) {
         return sharedPreferences.getBoolean(key, defaultValue)
     }
 
-    // Xóa dữ liệu
     fun remove(key: String) {
         sharedPreferences.edit().remove(key).apply()
     }

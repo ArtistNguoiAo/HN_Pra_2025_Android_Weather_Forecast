@@ -21,8 +21,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginPresenter>(), Logi
         return FragmentLoginBinding.inflate(inflater, container, false)
     }
 
-    private var loadingDialog: AlertDialog? = null
-    private var errorDialog: AlertDialog? = null
     private lateinit var pref: PreferenceHelper
 
     override fun initializePresenter() {
@@ -67,29 +65,6 @@ class LoginFragment : BaseFragment<FragmentLoginBinding, LoginPresenter>(), Logi
     override fun showLoginSuccess() {
         Toast.makeText(requireContext(), getString(R.string.login_success), Toast.LENGTH_SHORT).show()
         findNavController().navigate(R.id.home_fragment)
-    }
-
-    override fun showLoading() {
-        if (loadingDialog == null) {
-            val builder = AlertDialog.Builder(requireContext())
-            builder.setView(R.layout.dialog_loading) // layout custom có ProgressBar
-            builder.setCancelable(false)
-            loadingDialog = builder.create()
-        }
-        loadingDialog?.show()
-    }
-
-    override fun hideLoading() {
-        loadingDialog?.dismiss()
-    }
-
-    override fun showError(message: String) {
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setTitle(getString(R.string.error))
-            .setMessage(message)
-            .setCancelable(true)
-        errorDialog = builder.create()
-        errorDialog?.show()
     }
 
 }
