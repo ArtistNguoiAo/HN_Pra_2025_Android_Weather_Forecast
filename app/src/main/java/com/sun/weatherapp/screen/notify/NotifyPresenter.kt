@@ -3,7 +3,6 @@ package com.sun.weatherapp.screen.notify
 import com.sun.weatherapp.WeatherApplication
 import com.sun.weatherapp.data.helper.PreferenceHelper
 import com.sun.weatherapp.screen.base.BasePresenter
-import kotlinx.coroutines.delay
 
 class NotifyPresenter : BasePresenter<NotifyContract.View>(), NotifyContract.Presenter {
 
