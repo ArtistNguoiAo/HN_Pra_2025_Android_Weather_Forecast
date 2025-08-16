@@ -1,9 +1,10 @@
 package com.sun.weatherapp.screen.home
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
+import com.sun.weatherapp.R
 import com.sun.weatherapp.WeatherApplication
 import com.sun.weatherapp.data.model.WeatherResponse
 import com.sun.weatherapp.data.reposiroty.LocationRepository
@@ -13,6 +14,7 @@ import com.sun.weatherapp.data.reposiroty.source.local.WeatherLocalDataSource
 import com.sun.weatherapp.data.reposiroty.source.remote.WeatherRemoteDataSource
 import com.sun.weatherapp.databinding.FragmentHomeBinding
 import com.sun.weatherapp.screen.base.BaseFragment
+import com.sun.weatherapp.utils.WeatherIconLoader
 import com.sun.weatherapp.utils.toCelsius
 import java.util.Locale
 
@@ -48,6 +50,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomePresenter>(), HomeCon
         binding.swipeRefreshLayout.setOnRefreshListener {
             presenter?.refreshWeather()
         }
+        binding.apply {
+            windSpeedSection.setOnClickListener {
+                findNavController().navigate(
+                    R.id.action_home_fragment_to_wind_details_fragment
+                )
+            }
+        }
     }
 
     override fun showCurrentWeather(weatherResponse: WeatherResponse) {
@@ -64,6 +73,11 @@ class HomeFragment : BaseFragment<FragmentHomeBinding, HomePresenter>(), HomeCon
             tvPressure.text = "${weatherResponse.main.pressure} hPa"
             tvHumidity.text = "${weatherResponse.main.humidity}%"
             tvUvIndex.text = "N/A"
+
+            weatherResponse.weather.firstOrNull()?.let {
+                val icon = it.icon
+                WeatherIconLoader.loadWeatherIcon(icon, icWeatherIcon)
+            }
         }
 
     }
