@@ -1,0 +1,29 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginBottom="@dimen/dp_16">
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Hôm nay"
+        android:textSize="16sp"
+        android:padding="@dimen/dp_16"
+        android:background="@drawable/bg_item_notify"
+        android:textColor="@android:color/black" />
+
+    <ImageView
+        android:id="@+id/btnDelete"
+        android:layout_width="@dimen/dp_40"
+        android:layout_height="@dimen/dp_40"
+        android:padding="@dimen/dp_8"
+        android:layout_marginLeft="@dimen/dp_16"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_delete_forever"/>
+
+
+</LinearLayout>

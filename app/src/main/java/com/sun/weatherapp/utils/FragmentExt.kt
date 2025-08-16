@@ -4,6 +4,10 @@ import android.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.sun.weatherapp.R
 import com.sun.weatherapp.databinding.DialogChangePasswordBinding
+import java.text.SimpleDateFormat
+import java.util.*
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
 
 fun Fragment.showProgressDialog(): AlertDialog? {
     return if (context != null) {
@@ -70,3 +74,33 @@ fun Fragment.showChangePasswordDialog(
     } else null
 }
 
+fun Fragment.showTimePickerDialog(
+    onOkClick: (String) -> Unit
+): AlertDialog? {
+    val calendar = Calendar.getInstance()
+
+    // Dummy dialog để quản lý cancel/back
+    val dummyDialog = AlertDialog.Builder(requireContext()).create()
+    dummyDialog.setCancelable(true)
+
+    val timePickerDialog = TimePickerDialog(
+        requireContext(),
+        { _, hourOfDay, minute ->
+            calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+            calendar.set(Calendar.MINUTE, minute)
+
+            // Format giờ
+            val sdf = SimpleDateFormat("HH:mm", Locale.getDefault())
+            val formattedTime = sdf.format(calendar.time)
+
+            // Callback trả về string
+            onOkClick(formattedTime)
+        },
+        calendar.get(Calendar.HOUR_OF_DAY),
+        calendar.get(Calendar.MINUTE),
+        true // 24h format
+    )
+
+    timePickerDialog.show()
+    return dummyDialog
+}

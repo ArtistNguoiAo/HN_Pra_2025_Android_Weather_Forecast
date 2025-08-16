@@ -10,6 +10,7 @@ class PreferenceHelper private constructor(context: Context) {
         const val KEY_REMEMBER_ME = "remember_me"
         const val KEY_EMAIL = "email"
         const val KEY_PASSWORD = "password"
+        const val KEY_NOTIFICATIONS = "notifications"
 
         @Volatile
         private var instance: PreferenceHelper? = null
@@ -32,12 +33,20 @@ class PreferenceHelper private constructor(context: Context) {
         sharedPreferences.edit().putBoolean(key, value).apply()
     }
 
+    fun putStringList(key: String, value: List<String>) {
+        sharedPreferences.edit().putStringSet(key, value.toSet()).apply()
+    }
+
     fun getString(key: String, defaultValue: String = ""): String {
         return sharedPreferences.getString(key, defaultValue) ?: defaultValue
     }
 
     fun getBoolean(key: String, defaultValue: Boolean = false): Boolean {
         return sharedPreferences.getBoolean(key, defaultValue)
+    }
+
+    fun getStringList(key: String, defaultValue: List<String> = emptyList()): List<String> {
+        return sharedPreferences.getStringSet(key, defaultValue.toSet())?.toList() ?: defaultValue
     }
 
     fun remove(key: String) {

@@ -93,6 +93,7 @@
     <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
     <string name="no_email">>Không có email</string>
     <string name="no_name">Không có tên</string>
+    <string name="add_notify">Thêm thông báo</string>
 
     <string name="delete_account_confirmation">Bạn có chắc chắn muốn xóa tài khoản của mình?</string>
     <string name="logout_confirmation">Bạn có chắc chắn muốn đăng xuất?</string>

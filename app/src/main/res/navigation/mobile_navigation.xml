@@ -74,4 +74,10 @@
         tools:layout="@layout/fragment_wind_detail" />
     />
 
+    <fragment
+        android:id="@+id/notify_fragment"
+        android:name="com.sun.weatherapp.screen.notify.NotifyFragment"
+        android:label="Notify"
+        tools:layout="@layout/fragment_notify" />
+
 </navigation>

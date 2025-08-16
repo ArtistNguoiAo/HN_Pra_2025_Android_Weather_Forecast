@@ -76,6 +76,10 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding, ProfilePresenter>()
             profileImage.setOnClickListener {
                 pickImageLauncher.launch("image/*")
             }
+
+            llNotification.setOnClickListener {
+                findNavController().navigate(R.id.notify_fragment)
+            }
         }
     }
 
