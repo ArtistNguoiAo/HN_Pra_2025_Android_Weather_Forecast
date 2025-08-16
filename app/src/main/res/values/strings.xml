@@ -76,4 +76,10 @@
     <string name="artist">Artist</string>
     <string name="all_songs">All Songs</string>
     <string name="songs">Songs</string>
+
+    <string name="today">Hôm nay</string>
+    <string name="tomorrow">Ngày mai</string>
+    <string name="week">7 ngày tới</string>
+    <string name="title_daily_weather">Chi tiết nhiệt độ trong ngày</string>
+    <string name="search_location">Tìm kiếm địa điểm</string>
 </resources>
