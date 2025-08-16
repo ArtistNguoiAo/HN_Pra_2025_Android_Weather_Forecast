@@ -1,21 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/profileLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/dp_16"
-    android:orientation="vertical">
+    android:background="@color/background">
 
-    <Button
-        android:id="@+id/btnSampleMVP"
+    <!-- Phần thông tin user -->
+    <LinearLayout
+        android:id="@+id/userInfoLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/profile_navigate_sample_mvp" />
+        android:orientation="vertical"
+        android:gravity="center"
+        android:background="@drawable/bg_profile"
+        android:padding="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-    <Button
-        android:id="@+id/btnSampleAPI"
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/nav_profile"
+            android:textColor="@color/text_primary"
+            android:layout_gravity="center"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/dp_12"
+            android:textSize="@dimen/sp_16"/>
+
+        <!-- Avatar -->
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profileImage"
+            android:layout_width="@dimen/dp_80"
+            android:layout_height="@dimen/dp_80"
+            android:src="@drawable/ic_cloud_and_sun"
+            android:layout_marginBottom="@dimen/dp_12"
+            app:civ_border_width="2dp"
+            app:civ_border_color="@color/af_util_predefined_status_success"
+            tools:ignore="MissingClass" />
+
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="soroushnorozyui@gmail.com"
+            android:textSize="@dimen/sp_14"
+            android:textColor="@color/text_primary"/>
+
+    </LinearLayout>
+
+    <!-- Menu: Cài đặt thông báo -->
+    <LinearLayout
+        android:id="@+id/llNotification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/profile_navigate_sample_api" />
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_16"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/userInfoLayout">
 
-</LinearLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_notifications"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/notification"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"/>
+
+    </LinearLayout>
+
+    <!-- Menu: Đổi mật khẩu -->
+    <LinearLayout
+        android:id="@+id/llChangePassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_16"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/llNotification">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_change_password"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/change_password"
+            android:textColor="@color/text_primary"
+            android:textSize="@dimen/sp_16"/>
+
+    </LinearLayout>
+
+    <!-- Menu: Xóa tài khoản -->
+    <LinearLayout
+        android:id="@+id/llDeleteAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="@dimen/dp_16"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@id/llChangePassword">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_delete_forever"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:text="@string/delete_account"
+            android:textColor="@color/colorError"
+            android:textSize="@dimen/sp_16"/>
+
+    </LinearLayout>
+
+    <!-- Phiên bản + Đăng xuất -->
+    <LinearLayout
+        android:id="@+id/llFooter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/version"
+            android:textSize="@dimen/sp_12"
+            android:textColor="@color/text_secondary"/>
+
+        <TextView
+            android:id="@+id/btnLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/logout"
+            android:textStyle="bold"
+            android:textSize="@dimen/sp_16"
+            android:textColor="@color/text_primary"
+            android:layout_marginTop="8dp"/>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

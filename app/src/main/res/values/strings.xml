@@ -82,4 +82,24 @@
     <string name="week">7 ngày tới</string>
     <string name="title_daily_weather">Chi tiết nhiệt độ trong ngày</string>
     <string name="search_location">Tìm kiếm địa điểm</string>
+
+    <string name="logout">Đăng xuất</string>
+    <string name="vote">Đánh giá ứng dụng</string>
+    <string name="notification">Cài đặt thông báo</string>
+    <string name="change_password">Đổi mật khẩu</string>
+    <string name="delete_account">Xóa tài khoản</string>
+    <string name="warning">Cảnh báo</string>
+    <string name="new_password">Mật khẩu mới</string>
+    <string name="confirm_new_password">Xác nhận mật khẩu mới</string>
+    <string name="no_email">Không có email</string>
+    <string name="no_name">Không có tên</string>
+    <string name="add_notify">Thêm thông báo</string>
+
+    <string name="delete_account_confirmation">Bạn có chắc chắn muốn xóa tài khoản của mình?</string>
+    <string name="logout_confirmation">Bạn có chắc chắn muốn đăng xuất?</string>
+    <string name="change_password_confirmation">Bạn có chắc chắn muốn đổi mật khẩu?</string>
+    <string name="delete_account_success">Xóa tài khoản thành công</string>
+    <string name="logout_success">Đăng xuất thành công</string>
+    <string name="change_password_success">Đổi mật khẩu thành công</string>
+    <string name="update_image_success">Cập nhật ảnh đại diện thành công</string>
 </resources>

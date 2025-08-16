@@ -83,4 +83,10 @@
         android:label="Temp Details"
         tools:layout="@layout/fragment_temp_detail" />
 
+    <fragment
+        android:id="@+id/notify_fragment"
+        android:name="com.sun.weatherapp.screen.notify.NotifyFragment"
+        android:label="Notify"
+        tools:layout="@layout/fragment_notify" />
+
 </navigation>
