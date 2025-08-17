@@ -17,6 +17,7 @@ import com.sun.weatherapp.utils.showTimePickerDialog
 class NotifyFragment : BaseFragment<FragmentNotifyBinding, NotifyPresenter>(), NotifyContract.View {
 
     private lateinit var notifyAdapter: NotifyAdapter
+    val REQUEST_CODE_POST_NOTIFICATIONS = 1
 
     override fun getViewBinding(inflater: LayoutInflater, container: ViewGroup?): FragmentNotifyBinding {
         return FragmentNotifyBinding.inflate(inflater, container, false)
@@ -46,7 +47,7 @@ class NotifyFragment : BaseFragment<FragmentNotifyBinding, NotifyPresenter>(), N
                         ActivityCompat.requestPermissions(
                             requireActivity(),
                             arrayOf(Manifest.permission.POST_NOTIFICATIONS),
-                            1
+                            REQUEST_CODE_POST_NOTIFICATIONS
                         )
                         return@setOnClickListener
                     }

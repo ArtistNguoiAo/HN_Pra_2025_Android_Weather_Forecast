@@ -23,9 +23,8 @@ import kotlin.coroutines.resumeWithException
 class NotifyWorker(appContext: Context, params: WorkerParameters) :
     CoroutineWorker(appContext, params) {
 
-    val app = WeatherApplication.getInstance()
     val locationRepository =  LocationRepository.getInstance(
-        LocationLocalDataSource.getInstance(app.locationService)
+        LocationLocalDataSource.getInstance(WeatherApplication.getInstance().locationService)
     )
     val weatherRepository= WeatherRepository.getInstance(
         WeatherRemoteDataSource.getInstance(),
@@ -35,7 +34,7 @@ class NotifyWorker(appContext: Context, params: WorkerParameters) :
     @OptIn(ExperimentalCoroutinesApi::class)
     override suspend fun doWork(): Result = kotlinx.coroutines.coroutineScope {
         try {
-            // 1️⃣ Lấy location
+
             val location = kotlinx.coroutines.suspendCancellableCoroutine { cont ->
                 locationRepository.getCurrentLocation(object : OnResultListener<Location> {
                     override fun onSuccess(data: Location) = cont.resume(data) {}
@@ -61,31 +60,6 @@ class NotifyWorker(appContext: Context, params: WorkerParameters) :
             Result.failure()
         }
     }
-
-//    override suspend fun doWork(): Result {
-//
-//        locationRepository.getCurrentLocation(object : OnResultListener<Location> {
-//            override fun onSuccess(data: Location) {
-//                weatherRepository.getCurrentWeather(data.latitude, data.longitude, object : OnResultListener<WeatherResponse> {
-//                    override fun onSuccess(data: WeatherResponse) {
-//                        val info = data.weather[0].description
-//                        showNotification("Thời tiết", info)
-//                    }
-//
-//                    override fun onError(exception: Exception?) {
-//                        showNotification("Lỗi", "Không thể lấy dữ liệu thời tiết.")
-//                    }
-//                })
-//            }
-//
-//            override fun onError(exception: Exception?) {
-//                exception?.printStackTrace()
-//                showNotification("Lỗi", "Không thể lấy vị trí hiện tại.")
-//            }
-//        })
-//
-//        return Result.success()
-//    }
 
     private fun showNotification(title: String, content: String) {
         val channelId = "notify_channel"
