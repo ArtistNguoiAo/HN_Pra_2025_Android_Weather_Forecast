@@ -80,4 +80,5 @@ dependencies {
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     implementation ("com.github.bumptech.glide:glide:4.16.0")
     kapt ("com.github.bumptech.glide:compiler:4.16.0")
+    implementation ("androidx.work:work-runtime-ktx:2.9.0")
 }
