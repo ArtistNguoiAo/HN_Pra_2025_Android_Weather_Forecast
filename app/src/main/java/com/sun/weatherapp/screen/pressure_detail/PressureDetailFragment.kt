@@ -2,7 +2,9 @@ package com.sun.weatherapp.screen.pressure_detail
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sun.weatherapp.R
 import com.sun.weatherapp.WeatherApplication
 import com.sun.weatherapp.databinding.FragmentPressureDetailBinding
 import com.sun.weatherapp.data.model.WeatherDetailResponse
@@ -59,6 +61,9 @@ class PressureDetailFragment : BaseFragment<FragmentPressureDetailBinding, Press
                 layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
                 adapter = hourlyPressureAdapter
             }
+            icSearch.setOnClickListener {
+                findNavController().navigate(R.id.action_pressure_details_fragment_to_search_fragment)
+            }
         }
         presenter?.loadPressureDetail()
     }
@@ -89,7 +94,7 @@ class PressureDetailFragment : BaseFragment<FragmentPressureDetailBinding, Press
         binding.apply {
             // Hiển thị áp suất hiện tại
             tvCurrentPressure.text = "${pressureData.current.pressure}hPa"
-            tvTitle.text = "Hà Nội, Việt Nam"
+            tvTitle.text = getString(R.string.hanoi_vietnam)
             
             val currentWeather = pressureData.current
             

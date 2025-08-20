@@ -4,14 +4,14 @@
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:gravity="center"
-    android:padding="8dp">
+    android:padding="@dimen/dp_8">
 
     <TextView
         android:id="@+id/tvTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hiện tại"
-        android:textSize="12sp"
+        android:text="@string/current_time"
+        android:textSize="@dimen/text_size_caption"
         android:textColor="@color/black"/>
 
     <ImageView
@@ -19,14 +19,14 @@
         android:layout_width="@dimen/dp_28"
         android:layout_height="@dimen/dp_28"
         android:src="@drawable/ic_uv"
-        android:layout_margin="8dp"/>
+        android:layout_margin="@dimen/dp_8"/>
 
     <TextView
         android:id="@+id/tvUVIndex"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5"
-        android:textSize="14sp"
+        android:text="@string/sample_uv_value"
+        android:textSize="@dimen/text_size_medium"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 </LinearLayout>
