@@ -1,7 +1,10 @@
 package com.sun.weatherapp.data.model
+
 import kotlinx.parcelize.Parcelize
 
 import android.os.Parcelable
+import android.content.Context
+import com.sun.weatherapp.R
 
 @Parcelize
 data class WeatherResponse(
@@ -166,6 +169,16 @@ data class DailyFeelsLike(
     val morn: Double
 ) : Parcelable
 
+@Parcelize
+data class City(
+    val name: String,
+    val local_names: Map<String, String>? = null,
+    val lat: Double,
+    val lon: Double,
+    val country: String,
+    val state: String? = null
+) : Parcelable
+
 object WeatherEntry {
     const val COORD = "coord"
     const val LON = "lon"
@@ -212,7 +225,7 @@ object WeatherEntry {
     const val TIMEZONE = "timezone"
     const val NAME = "name"
     const val COD = "cod"
-    
+
     // OneCall API Weather Detail entries
     const val WEATHER_DETAIL = "weather_detail"
     const val CURRENT = "current"
@@ -235,10 +248,44 @@ object WeatherEntry {
     const val NIGHT = "night"
     const val EVE = "eve"
     const val MORN = "morn"
+    const val CITY = "city"
+    const val LOCAL_NAMES = "local_names"
+    const val STATE = "state"
 }
 
 enum class DailyWeatherType {
     TODAY,
     TOMORROW,
     WEEK
+}
+
+// Extension function to validate and get daily weather data
+fun WeatherDetailResponse.validateAndGetDailyWeather(
+    tabType: DailyWeatherType,
+    context: Context
+): List<DailyWeather> {
+    // Check if daily data is null or empty
+    if (daily.isEmpty()) {
+        throw IllegalStateException(context.getString(R.string.error_daily_weather_not_available))
+    }
+
+    return when (tabType) {
+        DailyWeatherType.TODAY -> {
+            if (daily.isEmpty()) {
+                throw IllegalStateException(context.getString(R.string.error_no_weather_today))
+            }
+            listOf(daily[0])
+        }
+
+        DailyWeatherType.TOMORROW -> {
+            if (daily.size < 2) {
+                throw IllegalStateException(context.getString(R.string.error_no_weather_tomorrow))
+            }
+            listOf(daily[1])
+        }
+
+        DailyWeatherType.WEEK -> {
+            daily.take(7)
+        }
+    }
 }
