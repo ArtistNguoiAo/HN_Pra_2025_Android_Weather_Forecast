@@ -56,6 +56,7 @@ dependencies {
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
     implementation("androidx.datastore:datastore-core-android:1.1.7")
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("junit:junit:4.12")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
@@ -87,4 +88,13 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
     implementation("androidx.fragment:fragment-ktx:1.6.1")
+
+    // JUnit
+    testImplementation("junit:junit:4.13.2")
+
+    // MockK for unit tests
+    testImplementation("io.mockk:mockk:1.13.13")
+
+    // (tuỳ chọn) nếu bạn dùng coroutine trong repository thì thêm
+    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.7.3")
 }
